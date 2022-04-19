@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "983086369462",
+    "project_id": "snap-stock",
+    "storage_bucket": "snap-stock.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:983086369462:android:b73d861f459da7c6e7b417",
+        "android_client_info": {
+          "package_name": "com.example.flutter_application_1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "983086369462-pta7supk5n9fbch14b5133o4igvc0oc8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDbILp4h-thLGuiU32LgCVzDszJaGMI5lE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "983086369462-pta7supk5n9fbch14b5133o4igvc0oc8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
