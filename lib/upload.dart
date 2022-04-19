@@ -1,6 +1,7 @@
 import 'dart:io';
-import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_application_1/services/database.dart';
 import 'package:image_picker/image_picker.dart';
 
 class UploadTab extends StatefulWidget {
@@ -11,9 +12,9 @@ class UploadTab extends StatefulWidget {
 class _MyPageState extends State<UploadTab> {
   /// Variables
 
+  DatabaseMethods databaseMethods = DatabaseMethods();
   XFile? pickedFile;
-  var imageFile, imageName;
-  late FirebaseStorage storage;
+  var imageFile;
 
   /// Widget
   @override
@@ -56,8 +57,8 @@ class _MyPageState extends State<UploadTab> {
                     imageFile,
                     fit: BoxFit.cover,
                   ),
-                  OutlinedButton(
-                      onPressed: uploadImageToFirebase(),
+                  ElevatedButton(
+                      onPressed: uploadImage(),
                       child: const Text('Upload Image')),
                 ],
               ),
@@ -75,11 +76,6 @@ class _MyPageState extends State<UploadTab> {
     if (pickedFile != null) {
       setState(() {
         imageFile = File(pickedFile!.path);
-        imageName = File(pickedFile!.name);
-
-        // Create a storage reference from our app
-        storage = imageFile.getReference();
-        print(storage);
       });
     }
   }
@@ -94,14 +90,15 @@ class _MyPageState extends State<UploadTab> {
     if (pickedFile != null) {
       setState(() {
         imageFile = File(pickedFile.path);
-        imageName = File(pickedFile.name);
-
-        // Create a storage reference from our app
-        storage = imageFile.getReference();
-        print(storage);
       });
     }
   }
 
-  uploadImageToFirebase() {}
+  uploadImage() {
+    Map<String, String> imagesMap = {
+      "pickedFile": imageFile.toString(),
+    };
+
+    databaseMethods.addImages(imagesMap);
+  }
 }

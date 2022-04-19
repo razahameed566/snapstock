@@ -15,6 +15,15 @@ class DatabaseMethods {
     });
   }
 
+  Future<void> addImages(imagesData) async {
+    FirebaseFirestore.instance
+        .collection("images")
+        .add(imagesData)
+        .catchError((e) {
+      print(e.toString());
+    });
+  }
+
   getUserInfo(String email) async {
     // return await FirebaseFirestore.instance
     //     .collection("users")
