@@ -19,6 +19,7 @@ class _MyPageState extends State<UploadTab> {
   XFile? pickedFile;
   var imageFile;
   bool isLoading = false;
+  String imageName = '';
 
   /// Widget
   @override
@@ -86,6 +87,7 @@ class _MyPageState extends State<UploadTab> {
     if (pickedFile != null) {
       setState(() {
         imageFile = File(pickedFile!.path);
+        imageName = File(pickedFile!.name).toString();
       });
     }
   }
@@ -100,6 +102,7 @@ class _MyPageState extends State<UploadTab> {
     if (pickedFile != null) {
       setState(() {
         imageFile = File(pickedFile.path);
+        imageName = File(pickedFile.name).toString();
       });
     }
   }
@@ -113,7 +116,7 @@ class _MyPageState extends State<UploadTab> {
       isLoading = true;
     });
     Reference firebaseStorageRef =
-        FirebaseStorage.instance.ref().child('images/');
+        FirebaseStorage.instance.ref().child(imageName);
     UploadTask uploadTask = firebaseStorageRef.putFile(imageFile);
     TaskSnapshot taskSnapshot = await uploadTask;
     taskSnapshot.ref.getDownloadURL().then((value) => print("Done:$value"));
