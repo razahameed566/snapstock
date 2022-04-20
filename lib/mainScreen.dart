@@ -77,10 +77,7 @@ class MyState extends State<MainScreen> with SingleTickerProviderStateMixin {
               SizedBox(
                 height: 600,
                 child: TabBarView(controller: _tabController, children: [
-                  const HomeTab(
-                    collageType: CollageType.CenterBig,
-                    withImage: true,
-                  ),
+                  const HomeTab(),
                   UploadTab(),
                   const ExploreTab(),
                   const PhotographersTab(),
