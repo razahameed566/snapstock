@@ -75,11 +75,11 @@ class MyState extends State<MainScreen> with SingleTickerProviderStateMixin {
                 ),
               ),
               SizedBox(
-                height: 600,
+                height: 1000,
                 child: TabBarView(controller: _tabController, children: [
-                  const HomeTab(),
-                  UploadTab(),
+                  HomeTab(),
                   const ExploreTab(),
+                  UploadTab(),
                   const PhotographersTab(),
                   const ChatRoomScreen(),
                 ]),
